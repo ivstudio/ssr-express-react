@@ -1,15 +1,14 @@
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import webpack from 'webpack';
+import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 
 const commonConfig: webpack.Configuration = {
     context: path.resolve(__dirname, '../'),
-    entry: './src/index.tsx',
+    entry: './src/entry.client.tsx',
     output: {
-        path: path.resolve(__dirname, '../dist'),
         filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, '../dist'),
         chunkFilename: '[name].[contenthash].bundle.js',
         assetModuleFilename: 'assets/[name].[hash][ext][query]',
         clean: true,
@@ -67,10 +66,19 @@ const commonConfig: webpack.Configuration = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
+        new WebpackManifestPlugin({
+            writeToFileEmit: true,
+            fileName: path.resolve(__dirname, '../dist/client/assets.json'),
+            generate: (seed, files) => {
+                const manifest = files.reduce((manifest, { name, path }) => {
+                    const cleanPath = path.replace(/^auto\//, '');
+                    manifest[name] = cleanPath;
+                    return manifest;
+                }, seed);
+
+                return manifest;
+            },
         }),
-        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
             chunkFilename: 'css/[id].css',
