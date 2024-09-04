@@ -24,12 +24,12 @@ I transformed my [client-rendered React app template](https://github.com/ivstudi
 
 This project includes several key features and configurations:
 
-- **Server-Side Rendering:** Set up SSR using ExpressJS to generate fully rendered HTML pages on the server.
-- **React Router DOM v6:** Using [Data Router](https://reactrouter.com/en/main/guides/ssr) and [Lazy loading](https://reactrouter.com/en/main/route/lazy) for optimized code-splitting across routes.
-- **Data Preloading:** Leveraged the [Loader](https://reactrouter.com/en/main/route/loader#loader) function to pre-load data.
-- **Access pre-loaded data with Hooks:** Utilized the [useLoaderData](https://reactrouter.com/en/main/hooks/use-loader-data#useloaderdata) hook to access preloaded data within components.
-- **Nested Routes:** Managed nested UI with [Outlet](https://reactrouter.com/en/main/components/outlet#outlet).
-- **Webpack Configuration:**  [target Node](https://webpack.js.org/concepts/targets/) in Webpack 5 for server-side usage.
+- **Server-Side Rendering:** Set up [SSR using ExpressJS](https://github.com/ivstudio/ssr-express-react/blob/main/src/server/entry.server.ts) to generate fully [rendered HTML](https://github.com/ivstudio/ssr-express-react/blob/main/src/server/render.tsx) pages on the server.
+- **React Router DOM v6:** Using [Data Router](https://reactrouter.com/en/main/guides/ssr) and [Lazy loading](https://github.com/ivstudio/ssr-express-react/blob/main/src/pages/About/About.tsx) for optimized code-splitting across routes.
+- **Data Preloading:** Leveraged the [Loader](https://github.com/ivstudio/ssr-express-react/blob/main/src/routes.tsx) function to pre-load data.
+- **Access pre-loaded data with Hooks:** Utilized the [useLoaderData](https://github.com/ivstudio/ssr-express-react/blob/main/src/pages/BlogRoll/BlogRoll.tsx) hook to access preloaded data within components.
+- **Nested Routes:** Managed nested UI with [Outlet](https://github.com/ivstudio/ssr-express-react/blob/main/src/routes.tsx).
+- **Webpack Configuration:**  [target Node](https://github.com/ivstudio/ssr-express-react/blob/main/webpack/webpack.server.ts) in Webpack 5 for server-side usage.
 
 ### Requirements
 
@@ -50,16 +50,22 @@ In Server-side Rendering(SSR), the server generates the HTML and sends a fully r
 **SSR Flow:**
 
 - **InitialRequest:** The browser sends an HTTP request to the server for the web page.
-- **Server Processing:**  The server, in our case ExpressJS receives and incoming request.
+- **Server Processing:**  The [server](https://github.com/ivstudio/ssr-express-react/blob/main/src/server/entry.server.ts), in our case ExpressJS receives and incoming request.
 - **Data Fetching**: React Router v6 triggers any data-loading functions associated with the matched route to fetch the necessary data on the server.
 - **Component Rendering**: React 18 renders the React components for the matched route on the server, using the fetched data to generate the complete HTML.
-- **HTML Response**: The fully rendered HTML, along with the fetched data embedded as JSON, is sent back to the browser by the Express server.
+- **HTML Response**: The fully rendered HTML, along with the fetched data embedded as JSON, is [sent back to the browser](https://github.com/ivstudio/ssr-express-react/blob/main/src/server/render.tsx) by the Express server.
 - **Initial Content Display**: The browser displays the fully rendered HTML immediately, providing users with visible content without waiting for JavaScript.
-- **JavaScript and Hydration**: The browser downloads the JavaScript bundle. React 18 then hydrates the page, attaching event handlers and enabling full interactivity on the client side.
+- **JavaScript and Hydration**: The browser downloads the JavaScript bundle. [React 18 then hydrates](https://github.com/ivstudio/ssr-express-react/blob/main/src/entry.client.tsx) the page, attaching event handlers and enabling full interactivity on the client side.
 - **Client-Side Navigation**: Subsequent navigation within the app is handled by React Router on the client side, without full page reloads, maintaining a seamless user experience.
 
+### View page source
 
-![SSR Flow Diagram](https://ivstudio.s3.amazonaws.com/app/blog/ssr-code.webp)
+When you inspect the page source in the dev console, the HTML is visible and can be crawled by search engines, ensuring your content is indexable.
+
+![SSR Code](https://ivstudio.s3.amazonaws.com/app/blog/ssr-code.webp)
+
+![SSR Blog Image](https://ivstudio.s3.amazonaws.com/app/blog/ssr-blog.webp)
+
 ---
 
 <p align="center"><sup>Made with ♥ by <a href="https://ivstudio.com">ivstudio</a></sup></p>
