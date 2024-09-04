@@ -11,6 +11,9 @@ const isAnalyze = process.env.ANALYZE === 'true';
 const prodConfig: webpack.Configuration = {
     mode: 'production',
     devtool: 'source-map',
+    output: {
+        publicPath: 'UPDATE_WITH_PROD_PUBLIC_PATH/',
+    },
     optimization: {
         minimize: true,
         minimizer: [
