@@ -1,6 +1,6 @@
-# Server Rendering with Express and React 18
+# Server Rendering with Express and React 19
 
-This demo presents a simple server-side rendering (SSR) setup using Express, React 18, React Router DOM v6, and Webpack 5.
+This demo presents a simple server-side rendering (SSR) setup using Express, React 19, React Router DOM v6, and Webpack 5.
 
 I transformed my [client-rendered React app template](https://github.com/ivstudio/react-typescript-tailwindcss-webpack5-starter) into a server-rendered version using React Router DOM v6 with Data Router and ExpressJS. This isn't a production-ready project, but rather an exploration to deepen my understanding of SSR without relying on a framework. If you're looking to server-render your React app, I recommend using [Remix](https://remix.run/) or [Next.js](https://nextjs.org/).
 
@@ -10,7 +10,7 @@ I transformed my [client-rendered React app template](https://github.com/ivstudi
 ## Tech Stack
 
 - [Express](https://expressjs.com/)
-- [React 18](https://reactjs.org/)
+- [React 19](https://reactjs.org/)
 - [React Router DOM v6](https://reactrouter.com/en/main)
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
@@ -52,10 +52,10 @@ In Server-side Rendering(SSR), the server generates the HTML and sends a fully r
 - **InitialRequest:** The browser sends an HTTP request to the server for the web page.
 - **Server Processing:**  The [server](https://github.com/ivstudio/ssr-express-react/blob/main/src/server/entry.server.ts), in our case ExpressJS receives and incoming request.
 - **Data Fetching**: React Router v6 triggers any data-loading functions associated with the matched route to fetch the necessary data on the server.
-- **Component Rendering**: React 18 renders the React components for the matched route on the server, using the fetched data to generate the complete HTML.
+- **Component Rendering**: React 19 renders the React components for the matched route on the server, using the fetched data to generate the complete HTML.
 - **HTML Response**: The fully rendered HTML, along with the fetched data embedded as JSON, is [sent back to the browser](https://github.com/ivstudio/ssr-express-react/blob/main/src/server/render.tsx) by the Express server.
 - **Initial Content Display**: The browser displays the fully rendered HTML immediately, providing users with visible content without waiting for JavaScript.
-- **JavaScript and Hydration**: The browser downloads the JavaScript bundle. [React 18 then hydrates](https://github.com/ivstudio/ssr-express-react/blob/main/src/entry.client.tsx) the page, attaching event handlers and enabling full interactivity on the client side.
+- **JavaScript and Hydration**: The browser downloads the JavaScript bundle. [React 19 then hydrates](https://github.com/ivstudio/ssr-express-react/blob/main/src/entry.client.tsx) the page, attaching event handlers and enabling full interactivity on the client side.
 - **Client-Side Navigation**: Subsequent navigation within the app is handled by React Router on the client side, without full page reloads, maintaining a seamless user experience.
 
 ### View page source
