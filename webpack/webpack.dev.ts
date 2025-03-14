@@ -1,11 +1,13 @@
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 import path from 'path';
 import webpack from 'webpack';
 import { merge } from 'webpack-merge';
 
 import 'webpack-dev-server';
 
-import commonConfig from './webpack.common';
+import commonConfig from './webpack.common.ts';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 dotenv.config({ path: '.env.public' });
 const publicHost: string = process.env.PUBLIC_HOST || 'localhost';

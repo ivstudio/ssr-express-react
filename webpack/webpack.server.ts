@@ -2,6 +2,9 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 import path from 'path';
 import nodeExternals from 'webpack-node-externals';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const serverConfig = {
     name: 'server',
