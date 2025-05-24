@@ -35,7 +35,7 @@
         "dotenv": "^16.4.7",
         "express": "^4.21.2",
         "react": "^19.1.0",
-        "react-dom": "^19.0.0",
+        "react-dom": "^19.1.0",
         "react-router-dom": "^6.28.0"
     },
     "devDependencies": {
