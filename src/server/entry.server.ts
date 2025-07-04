@@ -9,7 +9,7 @@ const app = express();
 app.use(express.static(path.resolve(__dirname, '../../dist/client')));
 app.use(serveStaticAssetsMiddleware);
 app.use(bundlesMiddleware);
-app.get('*', async (req, res) => {
+app.get('*catchall', async (req, res) => {
     try {
         const appHtml = await render(req, res);
         return res.status(200).end(appHtml);

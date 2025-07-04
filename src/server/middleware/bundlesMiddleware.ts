@@ -10,7 +10,7 @@ interface Bundles {
 async function getAssetPaths(): Promise<Bundles> {
     try {
         const jsonData = fs.readFileSync(
-            path.resolve(__dirname, '../client/assets.json'),
+            path.resolve(__dirname, '../../dist/client/assets.json'),
             'utf-8'
         );
 
