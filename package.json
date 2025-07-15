@@ -32,7 +32,7 @@
         "dev": "concurrently -p \"[{name}]\" -c auto --kill-others \"npm:dev:client\" \"npm:dev:server\""
     },
     "dependencies": {
-        "dotenv": "^16.4.7",
+        "dotenv": "^17.2.0",
         "express": "^5.1.0",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
