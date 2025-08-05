@@ -35,7 +35,7 @@
         "dotenv": "^17.2.0",
         "express": "^5.1.0",
         "react": "^19.1.0",
-        "react-dom": "^19.1.0",
+        "react-dom": "^19.1.1",
         "react-router-dom": "^6.28.0"
     },
     "devDependencies": {
@@ -54,7 +54,7 @@
         "@types/jest": "^29.5.14",
         "@types/node": "^24.0.15",
         "@types/react": "^19.1.0",
-        "@types/react-dom": "^19.0.4",
+        "@types/react-dom": "^19.1.7",
         "@types/webpack-bundle-analyzer": "^4.7.0",
         "@types/webpack-node-externals": "^3.0.4",
         "autoprefixer": "^10.4.20",
